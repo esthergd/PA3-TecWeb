@@ -1,3 +1,3 @@
 # PA3-TecWeb
 
-para rodar o docker, o nome dele eh pgDieta
+Link para acessar a pagina no Heroku: https://fierce-ridge-20061.herokuapp.com
