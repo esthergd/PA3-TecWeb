@@ -1,0 +1,37 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dieta dos Alimentos</title>
+</head>
+<body>
+    <div class="Barra-Pesquisa">
+        <form method="post" class="form-card">
+            {% csrf_token %}
+             <input class="form-card-title" id="alimento" type="text" name="alimento" placeholder="Alimento">
+             <button class="btn" type="submit">Pesquisar Alimento</button>
+          </form>
+    </div>
+    <div class="btn-Favoritos">
+        <form method="get" class="list-of-favorites" action="listFavorits">
+            <button onclick="location.href='templates/favorites.html';" id="favoritos" class="btn">List of favorites</button>
+        </form>
+    </div>
+    <div class="lista-alimentos">
+        {% for alimento in alimentos %}
+        <h2 class="alimentos-title">{{alimento.lowercaseDescription}}</h2>
+        <form method="post" class="alimentos-favorits" action="favorites" >
+            {% csrf_token %}
+            <input type="hidden" name="fdcId" value={{alimento.fdcId}} />
+            <button class="btn" type="submit">Add aos Favs</button>
+        </form>
+            {% for nutrients in alimento.foodNutrients %}
+            <h4 class="alimentos-nutrients">{{nutrients.nutrientName}}: {{nutrients.value}} {{nutrients.unitName}}</h4>
+            {% endfor %}
+        {% endfor %}
+    </div>
+</body>
+</html>
