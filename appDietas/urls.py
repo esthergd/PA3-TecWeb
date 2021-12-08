@@ -6,5 +6,6 @@ urlpatterns = [
     path('', views.Diet, name='Diet'),
     path('favorites', views.createFavorite),
     path('listFavorits', views.openFavorites),
-    path('backHome', views.Diet, name='Diet')
+    path('backHome', views.Diet, name='Diet'),
+    path('delete/<int:id>', views.deleteFavorite),
 ]

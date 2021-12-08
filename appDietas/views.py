@@ -25,4 +25,11 @@ def createFavorite(request):
     return redirect('Diet')
 
 def openFavorites(request):
-    return render(request, 'favorites.html')
+    allFavorites = Favorites.objects.all()
+    return render(request, 'favorites.html', {'allFavorites': allFavorites})
+
+def deleteFavorite(request, id):
+    deleted = Favorites()
+    deleted.id = id
+    deleted.delete()
+    return redirect('Diet')

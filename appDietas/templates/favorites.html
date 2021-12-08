@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,7 +8,16 @@
     <title>Favorites</title>
 </head>
 <body>
-    Teste
+    <div class="container">
+        {% for favorito in allFavorites %}
+            <h4>{{favorito.fdcId}}</h4>
+            <form method="post" class="list-of-favorites" action='delete/{{favorito.id}}'>
+                {% csrf_token %}
+                <button onclick="href='diet.html';" name="delete" class="btn">Delete</button>
+            </form>
+        {% endfor %}
+    </div>
+    <br />
     <div class="btn-Home">
         <form method="get" class="list-of-favorites" action="backHome">
             <button onclick="href='diet.html';" id="favoritos" class="btn">Back to the Home Screen</button>

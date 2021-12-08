@@ -15,6 +15,7 @@
              <button class="btn" type="submit">Pesquisar Alimento</button>
           </form>
     </div>
+    <br />
     <div class="btn-Favoritos">
         <form method="get" class="list-of-favorites" action="listFavorits">
             <button onclick="location.href='templates/favorites.html';" id="favoritos" class="btn">List of favorites</button>
@@ -25,7 +26,7 @@
         <h2 class="alimentos-title">{{alimento.lowercaseDescription}}</h2>
         <form method="post" class="alimentos-favorits" action="favorites" >
             {% csrf_token %}
-            <input type="hidden" name="fdcId" value={{alimento.fdcId}} />
+            <input type="hidden" name="fdcId" value="{{alimento.lowercaseDescription}}" />
             <button class="btn" type="submit">Add aos Favs</button>
         </form>
             {% for nutrients in alimento.foodNutrients %}
