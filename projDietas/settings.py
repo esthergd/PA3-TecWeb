@@ -90,7 +90,7 @@ WSGI_APPLICATION = 'projDietas.wsgi.application'
 # }
 DATABASES = {
     'default': dj_database_url.config(
-        default='postgresql://localhost/fierce-ridge-20061?user=dieta&password=dietasenha',
+        default='postgresql://localhost/appDietas?user=dieta&password=dietasenha',
         conn_max_age=600,
         ssl_require=not DEBUG
     )
