@@ -28,7 +28,7 @@ SECRET_KEY = 'django-insecure-l^bs-@uf$m!cn+aw05v5y+1yf3=z9=+szq=!tlm&bqpjxhqvd3
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['fierce-ridge-20061.herokuapp.com/', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['fierce-ridge-20061.herokuapp.com', 'localhost', '127.0.0.1']
 
 
 # Application definition
@@ -88,9 +88,10 @@ WSGI_APPLICATION = 'projDietas.wsgi.application'
 #         'PORT': '5432',
 #     }
 # }
+
 DATABASES = {
     'default': dj_database_url.config(
-        default='postgresql://localhost/appDietas?user=dieta&password=dietasenha',
+        default='postgresql://localhost/projDietas?user=dieta&password=dietasenha',
         conn_max_age=600,
         ssl_require=not DEBUG
     )
