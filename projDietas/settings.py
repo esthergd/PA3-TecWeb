@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 
 from pathlib import Path
 import os
+import dj_database_url
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -77,15 +78,22 @@ WSGI_APPLICATION = 'projDietas.wsgi.application'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'NAME': 'getit',
+#         'USER': 'dieta',
+#         'PASSWORD': 'dietasenha',
+#         'HOST': 'localhost',
+#         'PORT': '5432',
+#     }
+# }
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'getit',
-        'USER': 'dieta',
-        'PASSWORD': 'dietasenha',
-        'HOST': 'localhost',
-        'PORT': '5432',
-    }
+    'default': dj_database_url.config(
+        default='postgresql://localhost/fierce-ridge-20061?user=dieta&password=dietasenha',
+        conn_max_age=600,
+        ssl_require=not DEBUG
+    )
 }
 
 
